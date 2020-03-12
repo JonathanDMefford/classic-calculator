@@ -1,0 +1,12 @@
+html, body {
+    height: 100vh;
+}
+
+.button {
+    max-width: 3rem;
+}
+
+#app {
+    min-height: 100vh;
+}
+
