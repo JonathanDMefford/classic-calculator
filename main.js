@@ -16,11 +16,12 @@ class PageView {
     constructor() { }
 
     buildCalculator() {
+        let ids = ['7', '8', '9', 'multiply', '4', '5', '6', 'subtract', '1', '2', '3', 'add'];
         let chars = ['7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+'];
 
         var calRow = new Element('div', 'row', 'calcrow', '');
         var calCol1 = new Element('div', 'col-4', '', '');
-        var calCol2 = new Element('div', 'col-4 bg-light', 'calculator' , '');
+        var calCol2 = new Element('div', 'col-4 border border-dark bg-light', 'calculator' , '');
         var calCol3 = new Element('div', 'col-4', '' ,'');
 
         var outputRow = new Element('div', 'row pt-2', '', '');
@@ -42,7 +43,7 @@ class PageView {
         for (let i = 0; i < 3; i++) {
             var mainRow = new Element('div', 'row px-2', 'mainrow', '');
             for (let j = 0; j < 12; j++) {
-                var mainCol = new Element('button', 'col-3 rounded-circle bg-dark text-white', '', chars[j]);
+                var mainCol = new Element('button', 'col-3 rounded-circle bg-dark text-white', ids[j], chars[j]);
                 mainRow.element.appendChild(mainCol.element);
             }
         }
