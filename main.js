@@ -83,7 +83,7 @@ class PageView {
     }
 
     updateDisplay() {
-        document.getElementById('output').innerHTML = this.controller.model.curr_button;
+        document.getElementById('output').innerHTML += this.controller.model.curr_button;
     }
 }
 
@@ -104,11 +104,11 @@ class CalcController {
 }
 
 
-
 class Model {
     constructor(view) {
-        this.curr_button = "0"
-        this.view = null
+        this.curr_button = "";
+        this.view = null;
+        this.string = '';
     }
 
     setView(view) {
