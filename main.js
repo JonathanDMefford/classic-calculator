@@ -18,17 +18,17 @@ class PageView {
     buildCalculator() {
         let chars = ['7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+'];
 
-        var calRow = new Element('div', 'row', '', '');
+        var calRow = new Element('div', 'row', 'calcrow', '');
         var calCol1 = new Element('div', 'col-4', '', '');
         var calCol2 = new Element('div', 'col-4 bg-light', 'calculator' , '');
         var calCol3 = new Element('div', 'col-4', '' ,'');
 
-        var outputRow = new Element('div', 'row', '', '');
+        var outputRow = new Element('div', 'row pt-2', '', '');
 
-        var outputCol = new Element('div', 'col-12 pr-5 bg-light display-3 text-right text-dark', 'output', '0');
+        var outputCol = new Element('div', 'col-12 pr-2 bg-light display-3 text-right text-dark', 'output', '0');
         outputRow.element.appendChild(outputCol.element);
         
-        var row1 = new Element('div', 'row', 'row1', '');
+        var row1 = new Element('div', 'row px-2 pt-2', 'row1', '');
         
         var col1 = new Element('button', 'col-6 rounded-circle bg-dark p-2 text-white text-center', 'clear', 'Clear');
         row1.element.appendChild(col1.element);
@@ -40,14 +40,14 @@ class PageView {
         row1.element.appendChild(col3.element);
         
         for (let i = 0; i < 3; i++) {
-            var mainRow = new Element('div', 'row', '', '');
+            var mainRow = new Element('div', 'row px-2', 'mainrow', '');
             for (let j = 0; j < 12; j++) {
-                var mainCol = new Element('button', 'col-3 rounded-circle p-2 bg-dark text-white', '', chars[j]);
+                var mainCol = new Element('button', 'col-3 rounded-circle bg-dark text-white', '', chars[j]);
                 mainRow.element.appendChild(mainCol.element);
             }
         }
 
-        var lrow = new Element('div', 'row', '', '');
+        var lrow = new Element('div', 'row px-2 pb-2', 'lrow', '');
 
         var lcol1 = new Element('button', 'col-6 rounded-circle p-2 bg-dark text-white', '0', '0');
         lrow.element.appendChild(lcol1.element);

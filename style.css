@@ -1,12 +1,16 @@
-html, body {
-    height: 100vh;
+#row1 {
+    height: 4.5rem;
 }
 
-.button {
-    max-width: 3rem;
+#mainrow {
+    height: 13rem;
 }
 
-#app {
-    min-height: 100vh;
+#lrow {
+    height: 4.5rem;
 }
 
+.col {
+    width: 10rem;
+    padding: 10px;
+}
