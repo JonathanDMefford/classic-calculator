@@ -18,7 +18,6 @@ class PageView {
     }
 
     buildCalculator() {
-        // let ids = ['7', '8', '9', 'multiply', '4', '5', '6', 'subtract', '1', '2', '3', 'add'];
         let chars = ['7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+'];
 
         var calRow = new Element('div', 'row', 'calcrow', '');
@@ -28,9 +27,10 @@ class PageView {
 
         var outputRow = new Element('div', 'row pt-2', '', '');
 
-        var outputCol = new Element('div', 'col-12 pr-2 bg-light display-3 text-right text-dark', 'output', '0');
+        var outputCol = new Element('div', 'col-12 pr-2 bg-light display-3 text-right text-dark', 'output', 'Zero');
+        // outputCol.element.innerHTML = "0"
         outputRow.element.appendChild(outputCol.element);
-
+        // console.log(outputCol.element);
         var row1 = new Element('div', 'row px-2 pt-2', 'row1', '');
 
         var col1 = new Element('button', 'col-6 rounded-circle bg-dark p-2 text-white text-center', 'clear', 'Clear');
@@ -83,7 +83,7 @@ class PageView {
     }
 
     updateDisplay() {
-        document.getElementById('output').innerHTML += this.controller.model.curr_button;
+        document.getElementById('output').innerHTML = this.controller.model.numString1;
     }
 }
 
@@ -96,8 +96,25 @@ class CalcController {
     handleClicks(e) {
         console.log(this)
         // console.log(buttons);
-        this.model.curr_button = e.target.textContent;
+        // this.model.curr_button = e.target.textContent;
+        if (!isNaN(e.target.textContent)) {
+            if (this.model.numString1 == '0') {
+                this.model.numString1 = e.target.textContent;
+                
+            } else {
+                this.model.numString1 += e.target.textContent;
+            }
+        }
+
+
         this.model.displayButtons();
+    }
+
+    clearFunc() {
+        if (e.target.textContent == 'Clear') {
+            this.model.numString1 = '0';
+        }
+        
     }
 
     // need a handleEvent method that accepts the click event
@@ -108,12 +125,14 @@ class Model {
     constructor(view) {
         this.curr_button = "";
         this.view = null;
-        this.string = '';
+        this.numString1 = '';
+        this.numString2 = '';
     }
 
     setView(view) {
         this.view = view;
     }
+
 
     displayButtons() {
         this.view.updateDisplay();
